@@ -115,6 +115,10 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+    def change_img(self,  screen: pg.Surface):
+        self.img = pg.transform.rotozoom(pg.image.load(f"ex03/fig/explosion.gif"), 0, 1.0)
+        screen.blit(self.img, self.rct)
+
 
 class Beam:
     """
@@ -167,12 +171,12 @@ def main():
                 pg.display.update()
                 time.sleep(1)
                 return
-        
         for i, bomb in enumerate(bombs):
             if beam is not None:
                 if bomb.rct.colliderect(beam.rct):
                     bombs[i] = None
                     beam = None
+                    bomb.change_img(screen)
                     bird.change_img(6, screen)
                     pg.display.update()              
 
