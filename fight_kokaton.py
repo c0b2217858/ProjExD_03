@@ -44,13 +44,13 @@ class Bird:
         img0 = pg.transform.rotozoom(pg.image.load(f"ex03/fig/{num}.png"), 0, 2.0)  # 左向き
         img = pg.transform.flip(img0, True, False)  # 右向き
         self.imgs = {
-            (+5,  0): img,  # 右
-            (+5, -5): pg.transform.rotozoom(img, 45, 1.0),  # 右上
-            ( 0, -5): pg.transform.rotozoom(img, 90, 1.0),  # 上
-            (-5, -5): pg.transform.rotozoom(img0, -45, 1.0),  # 左上
-            (-5,  0): img0,  # 左
+            (+5, 0): img,  # 右
+            (+5,-5): pg.transform.rotozoom(img, 45, 1.0),  # 右上
+            (0, -5): pg.transform.rotozoom(img, 90, 1.0),  # 上
+            (-5,-5): pg.transform.rotozoom(img0, -45, 1.0),  # 左上
+            (-5, 0): img0,  # 左
             (-5, +5): pg.transform.rotozoom(img0, 45, 1.0),  # 左下
-            ( 0, +5): pg.transform.rotozoom(img, -90, 1.0),  # 下
+            (0, +5): pg.transform.rotozoom(img, -90, 1.0),  # 下
             (+5, +5): pg.transform.rotozoom(img, -45, 1.0),  # 右下
         }
         self.img = self.imgs[(+5, 0)]  # デフォルト：右向き
